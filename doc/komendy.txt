@@ -1,5 +1,5 @@
-Zadanie niewykonane ma postaæ <pierwsza liczba> <operator> <druga liczba>
-Zadanie wykonane ma postaæ <pierwsza liczba> <operator> <druga liczba> <rowna sie> <wynik>
+Zadanie niewykonane ma postaÄ‡ <pierwsza liczba> <operator> <druga liczba>
+Zadanie wykonane ma postaÄ‡ <pierwsza liczba> <operator> <druga liczba> <rowna sie> <wynik>
 
 
 Prezes:
@@ -7,7 +7,7 @@ Prezes:
 Stworzenie zadania:
 <ID Firmy> Prezes stworzylem <zadanie niewykonane>  np. "0 Prezes stworzylem  529 +  763"
 
-Wrzucenie zadania na listê zadañ:
+Wrzucenie zadania na listÄ™ zadaÅ„:
 <ID Firmy> Prezes wstawilem <zadanie niewykonane> np. "0 Prezes wstawilem  529 +  763"
 
 Pracownik:
@@ -19,7 +19,7 @@ Wykonanie zadania:
 <ID Firmy> Pracownik <id pracownika> pobralem <zadanie wykonane> np. "0 Pracownik  1   wykonalem:  122 - 495 = -373"
 
 Inne komunikaty (jak znalezienie maszyny, czekanie itp.):
-<ID Firmy> Pracownik <id pracownika> <wiadomoœæ> np. " 0 Pracownik  4  znalazlem maszyne"
+<ID Firmy> Pracownik <id pracownika> <wiadomoÅ›Ä‡> np. " 0 Pracownik  4  znalazlem maszyne"
 
 Inne:
 
@@ -28,4 +28,4 @@ Towar od <ID Fabryki> do <ID Sklepu> <zadania wykonane> np. "Towar od  1 do  0  
 
 
 Kupowanie produktu:
-<Id kupuj¹cego> kupilem od <ID Sklepu> <zadanie wykonane> np. "A kupilem od  0  506 - 701 = -195"
+<Id kupujÄ…cego> kupilem od <ID Sklepu> <zadanie wykonane> np. "0 kupilem od  0  506 - 701 = -195"
