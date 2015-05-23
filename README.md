@@ -4,7 +4,7 @@
 
 Ostatni build: https://jenkins.andrzejressel.pl/job/Wspolbiezne/lastStableBuild/
 
-GUI czyta komendy z pliku podanego mu jako pierwszy parametr.
+GUI czyta komendy z pliku podanego mu jako pierwszy argument.
 
 Dostepne komendy: https://github.com/jereksel/Wspolbiezne_gui/blob/master/doc/komendy.txt
 
