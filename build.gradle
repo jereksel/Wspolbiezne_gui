@@ -1,0 +1,44 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'pl.andrzejressel.wspolbiezne.processing.Main'
+
+repositories {
+    mavenCentral()
+    maven { url "https://clojars.org/repo" }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+    }
+}
+
+dependencies {
+    compile "quil:processing-core:2.2.1"
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
+
+compileJava.options.encoding = 'UTF-8'
+
+
+jar {
+    manifest {
+        attributes "Main-Class": "pl.andrzejressel.wspolbiezne.processing.Main"
+    }
+
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
+
+run {
+    if(System.getProperty("exec.args") != null) {
+        args System.getProperty("exec.args").split()
+    }
+}
+
+
+compileJava.options.encoding = 'UTF-8'

@@ -1,0 +1,381 @@
+Program zaczął działanie
+Kierownik start
+Kierownik start
+Kierownik start
+ 0 Prezes stworzylem  122 -  495
+ 0 Prezes wstawilem  122 -  495
+ 1 Prezes stworzylem  179 -  18
+ 1 Prezes wstawilem  179 -  18
+ 0 Prezes stworzylem  529 +  763
+ 0 Prezes wstawilem  529 +  763
+ 1 Prezes stworzylem  137 +  187
+ 1 Prezes wstawilem  137 +  187
+ 1 Prezes stworzylem  915 -  154
+ 1 Prezes wstawilem  915 -  154
+ 1 Prezes stworzylem  510 -  850
+ 1 Prezes wstawilem  510 -  850
+ 0 Prezes stworzylem  743 -  728
+ 0 Prezes wstawilem  743 -  728
+ 0 Prezes stworzylem  862 -  13
+ 0 Prezes wstawilem  862 -  13
+ 1 Prezes stworzylem  640 -  174
+ 1 Prezes wstawilem  640 -  174
+ 0 Prezes stworzylem  900 +  618
+ 0 Prezes wstawilem  900 +  618
+ 1 Prezes stworzylem  517 *  971
+ 1 Prezes wstawilem  517 *  971
+ 1 Prezes stworzylem  531 +  545
+ 1 Prezes wstawilem  531 +  545
+ 0 Prezes stworzylem  114 *  500
+ 0 Prezes wstawilem  114 *  500
+ 0 Prezes stworzylem  232 -  768
+ 0 Prezes wstawilem  232 -  768
+ 1 Prezes stworzylem  67 +  22
+ 1 Prezes wstawilem  67 +  22
+ 0 Prezes stworzylem  867 -  287
+ 0 Prezes wstawilem  867 -  287
+ 1 Prezes stworzylem  227 +  992
+ 1 Prezes wstawilem  227 +  992
+ 0 Prezes stworzylem  16 -  758
+ 0 Prezes wstawilem  16 -  758
+ 0 Pracownik  1 pobralem  122 -  495
+ 0 Pracownik  1  szukam maszyne
+ 0 Pracownik  1  znalazlem maszyne
+ 1 Pracownik  1 pobralem  179 -  18
+ 1 Pracownik  1  szukam maszyne
+ 1 Pracownik  1  znalazlem maszyne
+ 1 Prezes stworzylem  21 -  504
+ 1 Prezes wstawilem  21 -  504
+ 0 Prezes stworzylem  264 +  784
+ 0 Prezes wstawilem  264 +  784
+ 0 Pracownik  0 pobralem  529 +  763
+ 0 Pracownik  0  szukam maszyne
+ 0 Pracownik  0  znalazlem maszyne
+ 1 Prezes stworzylem  713 -  62
+ 1 Prezes wstawilem  713 -  62
+ 1 Prezes stworzylem  895 +  781
+Pełna lista zadań
+ 0 Prezes stworzylem  601 -  62
+ 0 Prezes wstawilem  601 -  62
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  2 pobralem  137 +  187
+ 1 Pracownik  2  szukam maszyne
+ 1 Pracownik  2  znalazlem maszyne
+ 0 Prezes stworzylem  27 -  326
+ 0 Prezes wstawilem  27 -  326
+ 1 Prezes wstawilem  895 +  781
+ 1 Prezes stworzylem  901 -  577
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 0 Prezes stworzylem  25 +  918
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  1   wykonalem:  122 - 495 = -373
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  1 pobralem  743 -  728
+ 0 Pracownik  1  szukam maszyne
+ 0 Pracownik  1  znalazlem maszyne
+ 1 Pracownik  1   wykonalem:  179 - 18 =  161
+Pełna lista zadań
+ 0 Pracownik  0   wykonalem:  529 + 763 =  1292
+ 1 Pracownik  3 pobralem  915 -  154
+ 1 Pracownik  3  szukam maszyne
+ 1 Pracownik  3  znalazlem maszyne
+ 0 Prezes wstawilem  25 +  918
+ 1 Pracownik  1 pobralem  510 -  850
+ 1 Pracownik  1  szukam maszyne
+ 1 Pracownik  1  znalazlem maszyne
+ 0 Pracownik  3 pobralem  862 -  13
+ 0 Pracownik  3  szukam maszyne
+ 0 Pracownik  3  znalazlem maszyne
+ 1 Pracownik  0 pobralem  640 -  174
+ 1 Pracownik  0  szukam maszyne
+ 0 Prezes stworzylem  506 -  701
+ 0 Prezes wstawilem  506 -  701
+ 1 Prezes wstawilem  901 -  577
+ 0 Pracownik  4 pobralem  900 +  618
+ 0 Pracownik  4  szukam maszyne
+ 0 Pracownik  4  znalazlem maszyne
+ 0 Prezes stworzylem  854 -  304
+ 0 Prezes wstawilem  854 -  304
+ 1 Pracownik  2   wykonalem:  137 + 187 =  324
+ 0 Pracownik  2 pobralem  114 *  500
+ 0 Pracownik  2  szukam maszyne
+ 0 Pracownik  2  znalazlem maszyne
+ 0 Pracownik  2  czekam na drugą osobę
+ 0 Pracownik  2  znalazłem drugą osobę
+ 1 Pracownik  4 pobralem  517 *  971
+ 1 Pracownik  4  szukam maszyne
+ 1 Pracownik  4  znalazlem maszyne
+ 1 Pracownik  4  czekam na drugą osobę
+ 1 Pracownik  4  znalazłem drugą osobę
+ 0 Prezes stworzylem  542 -  23
+ 0 Prezes wstawilem  542 -  23
+ 1 Prezes stworzylem  954 +  234
+ 1 Prezes wstawilem  954 +  234
+ 1 Prezes stworzylem  249 *  132
+ 1 Prezes wstawilem  249 *  132
+ 0 Prezes stworzylem  385 +  629
+Pełna lista zadań
+ 0 Pracownik  1  Maszyna sie popsula
+ 0 Pracownik  1  szukam maszyne
+ 1 Prezes stworzylem  558 *  415
+ 1 Prezes wstawilem  558 *  415
+ 1 Pracownik  3   wykonalem:  915 - 154 =  761
+Pełna lista zadań
+Pełna lista zadań
+ 1 Prezes stworzylem  262 *  329
+Pełna lista zadań
+ 1 Pracownik  1   wykonalem:  510 - 850 = -340
+ 0 Pracownik  3   wykonalem:  862 - 13 =  849
+ 0 Pracownik  4   wykonalem:  900 + 618 =  1518
+ 0 Pracownik  4 pobralem  232 -  768
+ 0 Pracownik  4  szukam maszyne
+ 0 Pracownik  4  znalazlem maszyne
+ 0 Pracownik  2   wykonalem:  114 * 500 =  57000
+ 0 Pracownik  3 pobralem  867 -  287
+ 0 Pracownik  3  szukam maszyne
+ 0 Pracownik  3  znalazlem maszyne
+ 0 Prezes wstawilem  385 +  629
+Pełna lista zadań
+ 1 Pracownik  4   wykonalem:  517 * 971 =  502007
+ 0 Mechanik : naprawilem maszyne
+Towar od  1 do  0  510 - 850 = -340  915 - 154 =  761  179 - 18 =  161 
+A kupilem od  0  179 - 18 =  161
+ 0 Prezes stworzylem  435 -  737
+ 0 Prezes wstawilem  435 -  737
+ 0 Prezes stworzylem  131 -  697
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+A kupilem od  0  915 - 154 =  761
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+A kupilem od  0  510 - 850 = -340
+Pełna lista zadań
+ 0 Pracownik  4   wykonalem:  232 - 768 = -536
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  0 pobralem  16 -  758
+ 0 Pracownik  0  szukam maszyne
+ 0 Pracownik  0  znalazlem maszyne
+ 0 Prezes wstawilem  131 -  697
+ 0 Pracownik  3   wykonalem:  867 - 287 =  580
+Pełna lista zadań
+Towar od  0 do  0  867 - 287 =  580  232 - 768 = -536  862 - 13 =  849  122 - 495 = -373 
+Pełna lista zadań
+A kupilem od  0  122 - 495 = -373
+ 1 Pracownik  0  znalazlem maszyne
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 0 Prezes stworzylem  201 +  271
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  1 pobralem  531 +  545
+ 1 Pracownik  1  szukam maszyne
+ 1 Pracownik  1  znalazlem maszyne
+ 1 Prezes wstawilem  262 *  329
+A kupilem od  0  862 - 13 =  849
+Pełna lista zadań
+ 1 Prezes stworzylem  127 +  422
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  2 pobralem  264 +  784
+ 0 Pracownik  2  szukam maszyne
+ 0 Pracownik  2  znalazlem maszyne
+Pełna lista zadań
+A kupilem od  0  232 - 768 = -536
+ 1 Pracownik  2 pobralem  67 +  22
+ 1 Pracownik  2  szukam maszyne
+ 1 Pracownik  2  znalazlem maszyne
+ 0 Pracownik  0   wykonalem:  16 - 758 = -742
+ 0 Prezes wstawilem  201 +  271
+ 0 Pracownik  1  znalazlem maszyne
+ 1 Pracownik  0   wykonalem:  640 - 174 =  466
+ 0 Prezes stworzylem  163 +  650
+Pełna lista zadań
+ 1 Prezes wstawilem  127 +  422
+ 1 Pracownik  3 pobralem  227 +  992
+ 1 Pracownik  3  szukam maszyne
+ 1 Pracownik  3  znalazlem maszyne
+A kupilem od  0  867 - 287 =  580
+ 1 Prezes stworzylem  798 *  171
+ 1 Prezes wstawilem  798 *  171
+Pełna lista zadań
+ 1 Pracownik  1  Maszyna sie popsula
+ 1 Pracownik  1  szukam maszyne
+Pełna lista zadań
+ 1 Prezes stworzylem  863 -  994
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  2  Maszyna sie popsula
+ 0 Pracownik  2  szukam maszyne
+ 0 Pracownik  2  znalazlem maszyne
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  2   wykonalem:  67 + 22 =  89
+ 1 Pracownik  0 pobralem  21 -  504
+ 1 Pracownik  0  szukam maszyne
+ 1 Pracownik  0  znalazlem maszyne
+Pełna lista zadań
+ 0 Pracownik  1   wykonalem:  743 - 728 =  15
+ 1 Mechanik : naprawilem maszyne
+ 1 Prezes wstawilem  863 -  994
+ 1 Pracownik  3  Maszyna sie popsula
+ 1 Pracownik  3  szukam maszyne
+Pełna lista zadań
+ 1 Prezes stworzylem  834 -  10
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  4 pobralem  713 -  62
+ 1 Pracownik  4  szukam maszyne
+ 0 Mechanik : naprawilem maszyne
+ 1 Prezes wstawilem  834 -  10
+ 1 Prezes stworzylem  734 -  434
+Pełna lista zadań
+ 0 Pracownik  1 pobralem  601 -  62
+ 0 Pracownik  1  szukam maszyne
+ 0 Pracownik  1  znalazlem maszyne
+ 0 Pracownik  0 pobralem  27 -  326
+ 0 Pracownik  0  szukam maszyne
+ 0 Pracownik  0  znalazlem maszyne
+ 0 Prezes wstawilem  163 +  650
+ 0 Pracownik  3 pobralem  25 +  918
+ 0 Pracownik  3  szukam maszyne
+Pełna lista zadań
+ 1 Mechanik : naprawilem maszyne
+ 0 Pracownik  2   wykonalem:  264 + 784 =  1048
+ 0 Pracownik  4 pobralem  506 -  701
+ 0 Pracownik  4  szukam maszyne
+ 0 Pracownik  4  znalazlem maszyne
+ 0 Prezes stworzylem  952 -  387
+ 0 Prezes wstawilem  952 -  387
+Pełna lista zadań
+ 1 Pracownik  0   wykonalem:  21 - 504 = -483
+ 0 Prezes stworzylem  271 -  465
+ 0 Prezes wstawilem  271 -  465
+Towar od  0 do  0  264 + 784 =  1048  900 + 618 =  1518  529 + 763 =  1292 
+Pełna lista zadań
+ 0 Prezes stworzylem  927 -  674
+ 0 Prezes wstawilem  927 -  674
+ 1 Pracownik  3  znalazlem maszyne
+Pełna lista zadań
+Pełna lista zadań
+A kupilem od  0  529 + 763 =  1292
+ 0 Prezes stworzylem  197 -  552
+Pełna lista zadań
+Pełna lista zadań
+ 0 Pracownik  1   wykonalem:  601 - 62 =  539
+ 0 Pracownik  0   wykonalem:  27 - 326 = -299
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  0 pobralem  895 +  781
+ 1 Pracownik  0  szukam maszyne
+ 1 Pracownik  0  znalazlem maszyne
+Pełna lista zadań
+ 0 Pracownik  3  znalazlem maszyne
+Towar od  0 do  0  27 - 326 = -299  601 - 62 =  539  743 - 728 =  15  16 - 758 = -742 
+ 0 Pracownik  4   wykonalem:  506 - 701 = -195
+A kupilem od  0  16 - 758 = -742
+ 0 Pracownik  0 pobralem  854 -  304
+ 0 Pracownik  0  szukam maszyne
+ 0 Pracownik  0  znalazlem maszyne
+ 1 Prezes wstawilem  734 -  434
+ 1 Prezes stworzylem  121 +  868
+Pełna lista zadań
+ 0 Prezes wstawilem  197 -  552
+ 0 Prezes stworzylem  188 *  690
+Pełna lista zadań
+A kupilem od  0  743 - 728 =  15
+Pełna lista zadań
+ 1 Pracownik  3   wykonalem:  227 + 992 =  1219
+ 0 Pracownik  2 pobralem  542 -  23
+ 0 Pracownik  2  szukam maszyne
+ 0 Pracownik  2  znalazlem maszyne
+Towar od  1 do  0  227 + 992 =  1219  67 + 22 =  89  137 + 187 =  324 
+Pełna lista zadań
+ 0 Prezes wstawilem  188 *  690
+ 1 Pracownik  4  znalazlem maszyne
+A kupilem od  0  137 + 187 =  324
+ 0 Prezes stworzylem  971 -  69
+Pełna lista zadań
+Pełna lista zadań
+A kupilem od  0  601 - 62 =  539
+ 1 Pracownik  1  znalazlem maszyne
+ 1 Pracownik  0   wykonalem:  895 + 781 =  1676
+ 0 Pracownik  3   wykonalem:  25 + 918 =  943
+ 0 Pracownik  3 pobralem  385 +  629
+ 0 Pracownik  3  szukam maszyne
+ 0 Pracownik  3  znalazlem maszyne
+ 0 Prezes wstawilem  971 -  69
+Pełna lista zadań
+ 0 Pracownik  0   wykonalem:  854 - 304 =  550
+ 0 Pracownik  1 pobralem  435 -  737
+ 0 Pracownik  1  szukam maszyne
+ 0 Pracownik  1  znalazlem maszyne
+A kupilem od  0  27 - 326 = -299
+Pełna lista zadań
+ 0 Prezes stworzylem  301 -  186
+ 0 Prezes wstawilem  301 -  186
+ 1 Pracownik  2 pobralem  901 -  577
+ 1 Pracownik  2  szukam maszyne
+ 1 Pracownik  2  znalazlem maszyne
+ 1 Prezes wstawilem  121 +  868
+ 0 Pracownik  2   wykonalem:  542 - 23 =  519
+Towar od  0 do  0  542 - 23 =  519  854 - 304 =  550  506 - 701 = -195 
+ 0 Prezes stworzylem  147 +  873
+Pełna lista zadań
+ 1 Pracownik  4   wykonalem:  713 - 62 =  651
+Pełna lista zadań
+ 1 Prezes stworzylem  879 -  153
+Pełna lista zadań
+A kupilem od  0  506 - 701 = -195
+ 1 Pracownik  1  Maszyna sie popsula
+ 1 Pracownik  1  szukam maszyne
+ 1 Pracownik  1  znalazlem maszyne
+Pełna lista zadań
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  3 pobralem  954 +  234
+ 1 Pracownik  3  szukam maszyne
+Towar od  1 do  0  713 - 62 =  651  21 - 504 = -483  640 - 174 =  466 
+ 0 Pracownik  3   wykonalem:  385 + 629 =  1014
+Pełna lista zadań
+A kupilem od  0  640 - 174 =  466
+Pełna lista zadań
+ 1 Prezes wstawilem  879 -  153
+ 0 Pracownik  1  Maszyna sie popsula
+ 0 Pracownik  1  szukam maszyne
+ 0 Pracownik  1  znalazlem maszyne
+ 1 Mechanik : naprawilem maszyne
+ 1 Prezes stworzylem  935 -  911
+Pełna lista zadań
+Pełna lista zadań
+ 1 Pracownik  2  Maszyna sie popsula
+ 1 Pracownik  2  szukam maszyne
+ 1 Pracownik  2  znalazlem maszyne
+ 0 Pracownik  4 pobralem  131 -  697
+ 0 Pracownik  4  szukam maszyne
+ 0 Pracownik  4  znalazlem maszyne
+ 0 Mechanik : naprawilem maszyne
+ 0 Prezes wstawilem  147 +  873
+Pełna lista zadań
+A kupilem od  0  21 - 504 = -483
+Pełna lista zadań
+A kupilem od  0  67 + 22 =  89
+A kupilem od  0  227 + 992 =  1219
+ 1 Pracownik  1   wykonalem:  531 + 545 =  1076
+ 0 Prezes stworzylem  339 +  700
+Pełna lista zadań
