@@ -248,8 +248,8 @@ public class MyPApplet extends PApplet {
 
     @Override
     public void mouseDragged() {
-        globalX += mouseX - pmouseX;
-        globalY += mouseY - pmouseY;
+        globalX += (mouseX - pmouseX)/skala;
+        globalY += (mouseY - pmouseY)/skala;
     }
 
     @Override
