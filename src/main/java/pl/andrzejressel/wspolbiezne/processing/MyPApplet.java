@@ -23,6 +23,8 @@ public class MyPApplet extends PApplet {
 
     int fontSize = 16;
 
+    float skala = 1.0f;
+
     int maxDzialan = 15;
     float height = fontSize + 4;
     float bigHeight = maxDzialan * height;
@@ -55,7 +57,6 @@ public class MyPApplet extends PApplet {
         sklepy.add(new Sklep(2));
 
 
-
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(Main.fileLocation), "UTF8"));
         } catch (Exception ex) {
@@ -70,9 +71,9 @@ public class MyPApplet extends PApplet {
     //Czytanie kolejnej linijki z pliku
     void read() {
 
-     //    tempFPS++;
+        //    tempFPS++;
 
-          tempFPS = 10000;
+        tempFPS = 10000;
 
         if (tempFPS < fps / 4) {
             return;
@@ -214,6 +215,8 @@ public class MyPApplet extends PApplet {
 
         read();
 
+        scale(skala);
+
         background(255);
         fill(0);
 
@@ -235,10 +238,10 @@ public class MyPApplet extends PApplet {
     @Override
     public void mouseWheel(MouseEvent event) {
         float e = event.getCount();
-        fontSize -= e;
+        skala -= e * 0.1;
 
-        if (fontSize <= 0) {
-            fontSize = 1;
+        if (skala <= 0f) {
+            skala = 0.1f;
         }
 
     }
