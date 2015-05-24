@@ -16,7 +16,7 @@ import java.util.Iterator;
 
 public class MyPApplet extends PApplet {
 
-    PFont f;  // Global font variable
+    PFont f;
 
     float globalX = 0;
     float globalY = 0;
@@ -43,7 +43,6 @@ public class MyPApplet extends PApplet {
 
     public void setup() {
         frameRate(fps);
-        // size(600, 500, OPENGL);
         size(600, 500);
         frame.setResizable(true);
 
@@ -64,22 +63,13 @@ public class MyPApplet extends PApplet {
             System.exit(1);
         }
 
+        Ani.setDefaultTimeMode(Ani.SECONDS);
         Ani.init(this);
     }
 
 
     //Czytanie kolejnej linijki z pliku
     void read() {
-
-        //    tempFPS++;
-
-        tempFPS = 10000;
-
-        if (tempFPS < fps / 4) {
-            return;
-        } else {
-            tempFPS = 0;
-        }
 
         try {
 
@@ -179,11 +169,23 @@ public class MyPApplet extends PApplet {
                     int fabrykaID = Integer.parseInt(split[2]);
                     int sklepID = Integer.parseInt(split[4]);
 
-                    for (int i = 5; i < split.length; i = i + 5) {
+                    int ETA = Integer.parseInt(split[6]);
+
+                    for (int i = 7; i < split.length; i = i + 5) {
                         Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
-                        println(dzialanie);
                         Dzialanie dzialanie1 = fabryki.get(fabrykaID).magazyn.remove(fabryki.get(fabrykaID).magazyn.indexOf(dzialanie));
+                        dzialanie1.wDrodze(ETA);
                         sklepy.get(sklepID).dzialania.add(dzialanie1);
+                    }
+
+
+                } else if (split[1].equals("dostarczony")) {
+
+                    int sklepID = Integer.parseInt(split[3]);
+
+                    for (int i = 4; i < split.length; i = i + 5) {
+                        Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
+                        sklepy.get(sklepID).dzialania.get(sklepy.get(sklepID).dzialania.indexOf(dzialanie)).dojechalo();
                     }
 
 
@@ -248,8 +250,8 @@ public class MyPApplet extends PApplet {
 
     @Override
     public void mouseDragged() {
-        globalX += (mouseX - pmouseX)/skala;
-        globalY += (mouseY - pmouseY)/skala;
+        globalX += (mouseX - pmouseX) / skala;
+        globalY += (mouseY - pmouseY) / skala;
     }
 
     @Override
@@ -470,8 +472,15 @@ public class MyPApplet extends PApplet {
         private String znak;
         private String wynik;
 
+        private Ani Anix;
+        private Ani Aniy;
+
         public float x;
         public float y;
+
+        //Gdy działanie jedzie do sklepu
+        private boolean wPodrozy = false;
+        private int ETA;
 
         public Dzialanie() {
             this("", "", "");
@@ -483,13 +492,40 @@ public class MyPApplet extends PApplet {
             this.znak = znak;
         }
 
+        public void wDrodze(int ETA) {
+            this.ETA = ETA;
+            wPodrozy = true;
+            Anix = null;
+            Aniy = null;
+        }
+
+        public void dojechalo() {
+            wPodrozy = false;
+        }
+
         public void update(float xNew, float yNew) {
-            Ani.to(this, 1.5f, "x", xNew);
-            Ani.to(this, 1.5f, "y", yNew);
+
+            if (!(wPodrozy)) {
+
+                //Twierdzenie Pitagorasa
+                float droga = sqrt(pow((x - xNew), 2.0f) + pow((y - yNew), 2.0f));
+
+                Anix = Ani.to(this, 0.01f * droga, "x", xNew);
+                Aniy = Ani.to(this, 0.01f * droga, "y", yNew);
+
+            } else if (Anix == null && Aniy == null) {
+                Anix = Ani.to(this, ETA, "x", xNew, Ani.LINEAR);
+                Aniy = Ani.to(this, ETA, "y", yNew, Ani.LINEAR);
+            }
+
         }
 
         public void draw() {
+            if (wPodrozy) {
+                fill(255, 0, 0);
+            }
             text(toString(), x, y);
+            fill(0);
         }
 
         @Override
