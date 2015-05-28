@@ -46,15 +46,18 @@ public class MyPApplet extends PApplet {
         size(600, 500);
         frame.setResizable(true);
 
-
+/*
         fabryki.add(new Fabryka(0, 5));
         fabryki.add(new Fabryka(1, 5));
         fabryki.add(new Fabryka(2, 5));
+ //       fabryki.add(new Fabryka(3, 5));
+ //       fabryki.add(new Fabryka(4, 5));
+  //      fabryki.add(new Fabryka(5, 5));
 
         sklepy.add(new Sklep(0));
         sklepy.add(new Sklep(1));
         sklepy.add(new Sklep(2));
-
+*/
 
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(Main.fileLocation), "UTF8"));
@@ -97,6 +100,24 @@ public class MyPApplet extends PApplet {
 
                 if (split.length == 1) {
                     return;
+                }
+
+
+                if (split[0].equals("Opcje")) {
+
+                    int iloscFabryk = Integer.parseInt(split[1]);
+                    int iloscPracownikow = Integer.parseInt(split[2]);
+                    int iloscSklepow = Integer.parseInt(split[3]);
+
+                    for (int i = 0; i < iloscFabryk; i++) {
+                        fabryki.add(new Fabryka(i, iloscPracownikow));
+                    }
+
+                    for (int i = 0; i < iloscSklepow; i++) {
+                        sklepy.add(new Sklep(i));
+                    }
+
+
                 }
 
                 if (split[1].equals("Pracownik")) {
@@ -514,6 +535,7 @@ public class MyPApplet extends PApplet {
                 Aniy = Ani.to(this, 0.01f * droga, "y", yNew);
 
             } else if (Anix == null && Aniy == null) {
+                //Magazyn -> Sklep
                 Anix = Ani.to(this, ETA, "x", xNew, Ani.LINEAR);
                 Aniy = Ani.to(this, ETA, "y", yNew, Ani.LINEAR);
             }

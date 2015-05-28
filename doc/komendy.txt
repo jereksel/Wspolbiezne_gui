@@ -2,6 +2,10 @@ Zadanie niewykonane ma postać <pierwsza liczba> <operator> <druga liczba>
 Zadanie wykonane ma postać <pierwsza liczba> <operator> <druga liczba> <rowna sie> <wynik>
 
 
+Pierwsza komenda musi mieć następujący format:
+Opcje <ilość fabryk> <ilość pracowników> <ilość sklepów> np. "Opcje  3  5  2"
+
+
 Prezes:
 
 Stworzenie zadania:
@@ -23,7 +27,7 @@ Inne komunikaty (jak znalezienie maszyny, czekanie itp.):
 
 Inne:
 
-Transport produktu (BETA):
+Transport produktu:
 
 Rozpoczęcie transportu:
 Towar od <ID Fabryki> do <ID Sklepu> ETA <czas w sekundach> <zadania wykonane> np. "Towar od  1 do  1 ETA  5  587 - 976 = -389  736 - 402 =  334"
