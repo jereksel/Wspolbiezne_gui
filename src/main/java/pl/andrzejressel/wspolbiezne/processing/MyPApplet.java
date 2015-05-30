@@ -1,7 +1,6 @@
 package pl.andrzejressel.wspolbiezne.processing;
 
 import de.looksgood.ani.Ani;
-import de.looksgood.ani.easing.Easing;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.event.MouseEvent;
@@ -13,13 +12,12 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class MyPApplet extends PApplet {
 
     PFont f;
-
-    Easing fixedLinear = new FixedLinear();
 
     float globalX = 0;
     float globalY = 0;
@@ -32,35 +30,20 @@ public class MyPApplet extends PApplet {
     float height = fontSize + 4;
     float bigHeight = maxDzialan * height;
 
-    int tempFPS = 0;
-
     int fps = 60;
 
     String najdluzszyCiagPracownik = "Pracownik 9999 szukam maszyny dodajacej/odejmujacej";
 
     BufferedReader br;
 
-    ArrayList<Fabryka> fabryki = new ArrayList<Fabryka>();
-    ArrayList<Sklep> sklepy = new ArrayList<Sklep>();
+    ArrayList<Fabryka> fabryki = new ArrayList<>();
+    ArrayList<Sklep> sklepy = new ArrayList<>();
 
 
     public void setup() {
         frameRate(fps);
         size(600, 500);
         frame.setResizable(true);
-
-/*
-        fabryki.add(new Fabryka(0, 5));
-        fabryki.add(new Fabryka(1, 5));
-        fabryki.add(new Fabryka(2, 5));
- //       fabryki.add(new Fabryka(3, 5));
- //       fabryki.add(new Fabryka(4, 5));
-  //      fabryki.add(new Fabryka(5, 5));
-
-        sklepy.add(new Sklep(0));
-        sklepy.add(new Sklep(1));
-        sklepy.add(new Sklep(2));
-*/
 
         try {
             br = new BufferedReader(new InputStreamReader(new FileInputStream(Main.fileLocation), "UTF8"));
@@ -89,18 +72,11 @@ public class MyPApplet extends PApplet {
                 String[] split = input.split(" ");
 
                 //Usuwanie pustych miejsc
-                ArrayList<String> splitList = new ArrayList<String>(Arrays.asList(split));
-                Iterator<String> iterator = splitList.iterator();
-                while (iterator.hasNext()) {
-                    String s = iterator.next();
-                    if (s.equals("")) {
-                        iterator.remove();
-                    }
-                }
+                List<String> splitList = new ArrayList<>(Arrays.asList(split));
 
-                split = new String[splitList.size()];
+                splitList = splitList.stream().filter(s -> !s.equals("")).collect(Collectors.toList());
 
-                split = splitList.toArray(split);
+                split = splitList.toArray(new String[splitList.size()]);
 
                 if (split.length == 1) {
                     return;
@@ -124,108 +100,124 @@ public class MyPApplet extends PApplet {
 
                 }
 
-                if (split[1].equals("Pracownik")) {
+                switch (split[1]) {
+                    case "Pracownik": {
 
-                    int pracownikId = Integer.parseInt(split[2]);
-                    int firmaId = Integer.parseInt(split[0]);
+                        int pracownikId = Integer.parseInt(split[2]);
+                        int firmaId = Integer.parseInt(split[0]);
 
-                    if (split[3].equals("pobralem")) {
+                        if (split[3].equals("pobralem")) {
+
+                            Dzialanie dzialanie = new Dzialanie(split[4], split[5], split[6]);
+
+                            Dzialanie dzialanie1 = fabryki.get(firmaId).listaZadan.get(fabryki.get(firmaId).listaZadan.indexOf(dzialanie));
+
+                            fabryki.get(firmaId).listaZadan.remove(dzialanie1);
+                            fabryki.get(firmaId).updateCoordinates();
+
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie = dzialanie1;
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).wypisanieDzialania = true;
+
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).update();
+
+
+                        } else if (split[3].contains("wykonałem") || split[3].contains("wykonalem")) {
+
+                            Dzialanie dzialanie = fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie;
+                            dzialanie.wynik = split[8];
+                            fabryki.get(firmaId).magazyn.add(dzialanie);
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie = null;
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).czynnosc = "czekam";
+                            fabryki.get(firmaId).updateCoordinates();
+
+                        } else {
+
+                            String robota = "";
+
+                            for (int i = 3; i < split.length; i++) {
+                                robota += split[i] + " ";
+                            }
+
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).czynnosc = robota;
+                            fabryki.get(firmaId).pracownicy.get(pracownikId).wypisanieDzialania = false;
+
+                        }
+
+
+                        break;
+                    }
+                    case "Prezes": {
+
+                        int firmaId = Integer.parseInt(split[0]);
+
+
+                        switch (split[2]) {
+                            case "stworzylem":
+                                fabryki.get(firmaId).dzialaniePrezesa(new Dzialanie(split[3], split[4], split[5]));
+                                break;
+                            case "wstawilem":
+                                fabryki.get(firmaId).listaZadan.add(fabryki.get(firmaId).prezesOstatnie);
+                                fabryki.get(firmaId).prezesOstatnie = null;
+                                fabryki.get(firmaId).updateCoordinates();
+                                break;
+                            default:
+                                System.out.println("Błędne wywolanie: " + Arrays.toString(split));
+                                System.exit(1);
+                        }
+
+                        break;
+                    }
+                    case "Klient": {
+
+                        int firmaId = Integer.parseInt(split[0]);
+
+                        fabryki.get(firmaId).magazyn.clear();
+
+                        break;
+                    }
+                    case "od": {
+
+                        int fabrykaID = Integer.parseInt(split[2]);
+                        int sklepID = Integer.parseInt(split[4]);
+
+                        int ETA = Integer.parseInt(split[6]);
+
+                        for (int i = 7; i < split.length; i = i + 5) {
+                            Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
+                            Dzialanie dzialanie1 = fabryki.get(fabrykaID).magazyn.remove(fabryki.get(fabrykaID).magazyn.indexOf(dzialanie));
+                            dzialanie1.wDrodze(ETA);
+                            sklepy.get(sklepID).dzialania.add(dzialanie1);
+                            fabryki.get(fabrykaID).updateCoordinates();
+                            sklepy.get(sklepID).updateCoordinates();
+                        }
+
+
+                        break;
+                    }
+                    case "dostarczony": {
+
+                        int sklepID = Integer.parseInt(split[3]);
+
+                        for (int i = 4; i < split.length; i = i + 5) {
+                            Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
+                            sklepy.get(sklepID).dzialania.get(sklepy.get(sklepID).dzialania.indexOf(dzialanie)).dojechalo();
+                            sklepy.get(sklepID).updateCoordinates();
+                        }
+
+
+                        break;
+                    }
+                    case "kupilem": {
+
+                        int sklepID = Integer.parseInt(split[3]);
 
                         Dzialanie dzialanie = new Dzialanie(split[4], split[5], split[6]);
 
-                        Dzialanie dzialanie1 = fabryki.get(firmaId).listaZadan.get(fabryki.get(firmaId).listaZadan.indexOf(dzialanie));
-
-                        fabryki.get(firmaId).listaZadan.remove(dzialanie1);
-                        fabryki.get(firmaId).updateCoordinates();
-
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie = dzialanie1;
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).wypisanieDzialania = true;
-
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).update();
-
-
-                    } else if (split[3].contains("wykonałem") || split[3].contains("wykonalem")) {
-
-                        Dzialanie dzialanie = fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie;
-                        dzialanie.wynik = split[8];
-                        fabryki.get(firmaId).magazyn.add(dzialanie);
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).dzialanie = null;
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).czynnosc = "czekam";
-                        fabryki.get(firmaId).updateCoordinates();
-
-                    } else {
-
-                        String robota = "";
-
-                        for (int i = 3; i < split.length; i++) {
-                            robota += split[i] + " ";
-                        }
-
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).czynnosc = robota;
-                        fabryki.get(firmaId).pracownicy.get(pracownikId).wypisanieDzialania = false;
-
-                    }
-
-
-                } else if (split[1].equals("Prezes")) {
-
-                    int firmaId = Integer.parseInt(split[0]);
-
-
-                    if (split[2].equals("stworzylem")) {
-                        fabryki.get(firmaId).dzialaniePrezesa(new Dzialanie(split[3], split[4], split[5]));
-                    } else if (split[2].equals("wstawilem")) {
-                        fabryki.get(firmaId).listaZadan.add(fabryki.get(firmaId).prezesOstatnie);
-                        fabryki.get(firmaId).prezesOstatnie = null;
-                        fabryki.get(firmaId).updateCoordinates();
-                    } else {
-                        System.out.println("Błędne wywolanie: " + Arrays.toString(split));
-                        System.exit(1);
-                    }
-
-                } else if (split[1].equals("Klient")) {
-
-                    int firmaId = Integer.parseInt(split[0]);
-
-                    fabryki.get(firmaId).magazyn.clear();
-
-                } else if (split[1].equals("od")) {
-
-                    int fabrykaID = Integer.parseInt(split[2]);
-                    int sklepID = Integer.parseInt(split[4]);
-
-                    int ETA = Integer.parseInt(split[6]);
-
-                    for (int i = 7; i < split.length; i = i + 5) {
-                        Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
-                        Dzialanie dzialanie1 = fabryki.get(fabrykaID).magazyn.remove(fabryki.get(fabrykaID).magazyn.indexOf(dzialanie));
-                        dzialanie1.wDrodze(ETA);
-                        sklepy.get(sklepID).dzialania.add(dzialanie1);
-                        fabryki.get(fabrykaID).updateCoordinates();
+                        sklepy.get(sklepID).dzialania.remove(sklepy.get(sklepID).dzialania.indexOf(dzialanie));
                         sklepy.get(sklepID).updateCoordinates();
+
+                        break;
                     }
-
-
-                } else if (split[1].equals("dostarczony")) {
-
-                    int sklepID = Integer.parseInt(split[3]);
-
-                    for (int i = 4; i < split.length; i = i + 5) {
-                        Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
-                        sklepy.get(sklepID).dzialania.get(sklepy.get(sklepID).dzialania.indexOf(dzialanie)).dojechalo();
-                        sklepy.get(sklepID).updateCoordinates();
-                    }
-
-
-                } else if (split[1].equals("kupilem")) {
-
-                    int sklepID = Integer.parseInt(split[3]);
-
-                    Dzialanie dzialanie = new Dzialanie(split[4], split[5], split[6]);
-
-                    sklepy.get(sklepID).dzialania.remove(sklepy.get(sklepID).dzialania.indexOf(dzialanie));
-                    sklepy.get(sklepID).updateCoordinates();
-
                 }
             }
 
@@ -253,13 +245,8 @@ public class MyPApplet extends PApplet {
 
         textAlign(LEFT);
 
-        for (Fabryka fabryka : fabryki) {
-            fabryka.draw();
-        }
-
-        for (Sklep sklep : sklepy) {
-            sklep.draw();
-        }
+        fabryki.forEach(MyPApplet.Fabryka::draw);
+        sklepy.forEach(MyPApplet.Sklep::draw);
 
     }
 
@@ -310,10 +297,9 @@ public class MyPApplet extends PApplet {
 
     //Inne klasy
 
-
     public class Sklep {
 
-        public ArrayList<Dzialanie> dzialania = new ArrayList<Dzialanie>();
+        public ArrayList<Dzialanie> dzialania = new ArrayList<>();
         int id;
 
         public Sklep(int id) {
@@ -325,10 +311,7 @@ public class MyPApplet extends PApplet {
             text("SKLEP:", textWidth(najdluzszyCiagPracownik) + textWidth("Lista Zadań     ") + textWidth("Magazyn                                             ")
                     , bigHeight * id + height);
 
-            for (Dzialanie dzialanie : dzialania) {
-                dzialanie.draw();
-            }
-
+            dzialania.forEach(MyPApplet.Dzialanie::draw);
 
         }
 
@@ -351,9 +334,9 @@ public class MyPApplet extends PApplet {
 
         public Dzialanie prezesOstatnie = new Dzialanie();
 
-        public ArrayList<Dzialanie> listaZadan = new ArrayList<Dzialanie>();
-        public ArrayList<Dzialanie> magazyn = new ArrayList<Dzialanie>();
-        public ArrayList<Pracownik> pracownicy = new ArrayList<Pracownik>();
+        public ArrayList<Dzialanie> listaZadan = new ArrayList<>();
+        public ArrayList<Dzialanie> magazyn = new ArrayList<>();
+        public ArrayList<Pracownik> pracownicy = new ArrayList<>();
 
         public Fabryka(int id, int iloscPracownikow) {
 
@@ -383,21 +366,15 @@ public class MyPApplet extends PApplet {
                 prezesOstatnie.draw();
             }
 
-            for (Pracownik pracownik : pracownicy) {
-                pracownik.draw();
-            }
+            pracownicy.forEach(MyPApplet.Pracownik::draw);
 
             text("Lista zadan: ", textWidth(najdluzszyCiagPracownik), bigHeight * id + height);
 
-            for (Dzialanie dzialanie : listaZadan) {
-                dzialanie.draw();
-            }
+            listaZadan.forEach(MyPApplet.Dzialanie::draw);
 
             text("Magazyn: ", textWidth(najdluzszyCiagPracownik) + textWidth("Lista Zadań     "), bigHeight * id + height);
 
-            for (Dzialanie dzialanie : magazyn) {
-                dzialanie.draw();
-            }
+            magazyn.forEach(MyPApplet.Dzialanie::draw);
 
         }
 

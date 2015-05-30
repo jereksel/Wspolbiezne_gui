@@ -3,9 +3,8 @@ package pl.andrzejressel.wspolbiezne.processing;
 import de.looksgood.ani.easing.Easing;
 
 /**
- * Backup
+ * Domyślny linear nie działa, gdy obecna i docelowa wartość jest taka sama
  **/
-
 public class FixedLinear extends Easing {
 
     public FixedLinear() {
