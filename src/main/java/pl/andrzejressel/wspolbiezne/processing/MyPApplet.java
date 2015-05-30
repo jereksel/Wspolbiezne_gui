@@ -1,6 +1,7 @@
 package pl.andrzejressel.wspolbiezne.processing;
 
 import de.looksgood.ani.Ani;
+import de.looksgood.ani.easing.Easing;
 import processing.core.PApplet;
 import processing.core.PFont;
 import processing.event.MouseEvent;
@@ -17,6 +18,8 @@ import java.util.Iterator;
 public class MyPApplet extends PApplet {
 
     PFont f;
+
+    Easing fixedLinear = new FixedLinear();
 
     float globalX = 0;
     float globalY = 0;
@@ -66,6 +69,7 @@ public class MyPApplet extends PApplet {
             System.exit(1);
         }
 
+        Ani.setDefaultEasing(Ani.LINEAR);
         Ani.setDefaultTimeMode(Ani.SECONDS);
         Ani.init(this);
     }
@@ -197,6 +201,8 @@ public class MyPApplet extends PApplet {
                         Dzialanie dzialanie1 = fabryki.get(fabrykaID).magazyn.remove(fabryki.get(fabrykaID).magazyn.indexOf(dzialanie));
                         dzialanie1.wDrodze(ETA);
                         sklepy.get(sklepID).dzialania.add(dzialanie1);
+                        fabryki.get(fabrykaID).updateCoordinates();
+                        sklepy.get(sklepID).updateCoordinates();
                     }
 
 
@@ -207,6 +213,7 @@ public class MyPApplet extends PApplet {
                     for (int i = 4; i < split.length; i = i + 5) {
                         Dzialanie dzialanie = new Dzialanie(split[i], split[i + 1], split[i + 2]);
                         sklepy.get(sklepID).dzialania.get(sklepy.get(sklepID).dzialania.indexOf(dzialanie)).dojechalo();
+                        sklepy.get(sklepID).updateCoordinates();
                     }
 
 
@@ -217,6 +224,7 @@ public class MyPApplet extends PApplet {
                     Dzialanie dzialanie = new Dzialanie(split[4], split[5], split[6]);
 
                     sklepy.get(sklepID).dzialania.remove(sklepy.get(sklepID).dzialania.indexOf(dzialanie));
+                    sklepy.get(sklepID).updateCoordinates();
 
                 }
             }
@@ -246,12 +254,10 @@ public class MyPApplet extends PApplet {
         textAlign(LEFT);
 
         for (Fabryka fabryka : fabryki) {
-            fabryka.updateCoordinates();
             fabryka.draw();
         }
 
         for (Sklep sklep : sklepy) {
-            sklep.updateCoordinates();
             sklep.draw();
         }
 
@@ -481,8 +487,6 @@ public class MyPApplet extends PApplet {
 
             return otherMyClass.id == id;
         }
-
-
     }
 
 
@@ -527,17 +531,21 @@ public class MyPApplet extends PApplet {
         public void update(float xNew, float yNew) {
 
             if (!(wPodrozy)) {
-
                 //Twierdzenie Pitagorasa
                 float droga = sqrt(pow((x - xNew), 2.0f) + pow((y - yNew), 2.0f));
 
-                Anix = Ani.to(this, 0.01f * droga, "x", xNew);
-                Aniy = Ani.to(this, 0.01f * droga, "y", yNew);
+                if (x != xNew) {
+                    Ani.to(this, 0.001f * droga, "x", xNew);
+                }
+                if (y != yNew) {
+                    Ani.to(this, 0.001f * droga, "y", yNew);
+                }
+
 
             } else if (Anix == null && Aniy == null) {
                 //Magazyn -> Sklep
-                Anix = Ani.to(this, ETA, "x", xNew, Ani.LINEAR);
-                Aniy = Ani.to(this, ETA, "y", yNew, Ani.LINEAR);
+                Anix = Ani.to(this, ETA, "x", xNew);
+                Aniy = Ani.to(this, ETA, "y", yNew);
             }
 
         }
