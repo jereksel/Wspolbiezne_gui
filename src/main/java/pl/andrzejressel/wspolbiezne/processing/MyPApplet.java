@@ -101,6 +101,7 @@ public class MyPApplet extends PApplet {
                 }
 
                 switch (split[1]) {
+
                     case "Pracownik": {
 
                         int pracownikId = Integer.parseInt(split[2]);
@@ -146,6 +147,7 @@ public class MyPApplet extends PApplet {
 
                         break;
                     }
+
                     case "Prezes": {
 
                         int firmaId = Integer.parseInt(split[0]);
@@ -167,6 +169,7 @@ public class MyPApplet extends PApplet {
 
                         break;
                     }
+
                     case "Klient": {
 
                         int firmaId = Integer.parseInt(split[0]);
@@ -175,6 +178,7 @@ public class MyPApplet extends PApplet {
 
                         break;
                     }
+
                     case "od": {
 
                         int fabrykaID = Integer.parseInt(split[2]);
@@ -194,6 +198,7 @@ public class MyPApplet extends PApplet {
 
                         break;
                     }
+
                     case "dostarczony": {
 
                         int sklepID = Integer.parseInt(split[3]);
@@ -207,6 +212,7 @@ public class MyPApplet extends PApplet {
 
                         break;
                     }
+
                     case "kupilem": {
 
                         int sklepID = Integer.parseInt(split[3]);
@@ -446,8 +452,8 @@ public class MyPApplet extends PApplet {
                 dzialanie.update(xNew + textWidth("Pracownik 99"), yNew);
             }
 
-            Ani.to(this, 1.5f, "x", xNew);
-            Ani.to(this, 1.5f, "y", yNew);
+            Ani.to(this, 0.5f, "x", xNew);
+            Ani.to(this, 0.5f, "y", yNew);
         }
 
         @Override

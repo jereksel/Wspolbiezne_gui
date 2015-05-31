@@ -15,8 +15,6 @@ public class Main {
 
         fileLocation = args[0];
 
-        System.out.println(fileLocation);
-
         PApplet.main(new String[]{"pl.andrzejressel.wspolbiezne.processing.MyPApplet"});
     }
 
